@@ -42,6 +42,13 @@ class NotesInput extends React.Component {
     alert(message);
 
     this.props.addNotes(this.state);
+    this.setState(() => {
+      return {
+        title: "",
+        body: "",
+        maxInputLeft: 50,
+      };
+    });
   }
 
   render() {
