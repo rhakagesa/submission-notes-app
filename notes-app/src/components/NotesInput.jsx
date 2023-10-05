@@ -33,15 +33,8 @@ class NotesInput extends React.Component {
 
   onSubmitEventHandler(ev) {
     ev.preventDefault();
-
-    const message = `
-    title: ${this.state.title}
-    body: ${this.state.body}
-    `;
-
-    alert(message);
-
     this.props.addNotes(this.state);
+
     this.setState(() => {
       return {
         title: "",

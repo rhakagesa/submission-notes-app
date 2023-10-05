@@ -1,11 +1,10 @@
 import React from "react";
 import NotesItem from "./NotesItem";
 
-function NotesActive({ notesData, onDeleteNote, onArchiveNote }) {
+function NotesInActive({ notesData, onDeleteNote, onArchiveNote }) {
   let content;
   if (notesData.length === 0) {
-    content = <p>Tidak ada catatan</p>;
-    console.log(notesData);
+    content = <p>Data arsip kosong</p>;
   } else {
     content = notesData.map((note) => (
       <NotesItem
@@ -21,12 +20,13 @@ function NotesActive({ notesData, onDeleteNote, onArchiveNote }) {
       />
     ));
   }
+
   return (
     <div>
-      <h1>Catatan Aktif</h1>
+      <h1>Archive</h1>
       {content}
     </div>
   );
 }
 
-export default NotesActive;
+export default NotesInActive;
