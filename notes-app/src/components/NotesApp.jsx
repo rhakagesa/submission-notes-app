@@ -1,5 +1,5 @@
 import React from "react";
-import { getNotesData } from "../utils/data";
+import { getInitialData } from "../utils/data";
 import NotesInput from "./NotesInput";
 import NotesActive from "./NotesListActive";
 import NotesInActive from "./NotesListInActive";
@@ -10,7 +10,7 @@ class NotesApp extends React.Component {
     super(props);
 
     this.state = {
-      notesData: getNotesData(),
+      notesData: getInitialData(),
       searchResults: [],
     };
 
@@ -29,6 +29,7 @@ class NotesApp extends React.Component {
   }
 
   onAddNotes({ title, body }) {
+    const createdAt = +new Date();
     this.setState((prevState) => {
       return {
         notesData: [
@@ -37,7 +38,7 @@ class NotesApp extends React.Component {
             id: +new Date(),
             title,
             body,
-            createdAt: new Date().toDateString(),
+            createdAt: createdAt,
             archived: false,
           },
         ],
