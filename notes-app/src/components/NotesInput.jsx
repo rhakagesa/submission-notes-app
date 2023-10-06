@@ -46,7 +46,7 @@ class NotesInput extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmitEventHandler}>
+      <form onSubmit={this.onSubmitEventHandler} className="form-input">
         <h1>Buat Catatan</h1>
         <input
           type="text"

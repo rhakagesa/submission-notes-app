@@ -2,8 +2,8 @@ const getNotesData = () => {
   return [
     {
       id: +new Date(),
-      title: "Tes Judul",
-      body: "Tes Body",
+      title: "Ini Judul Catatan",
+      body: "Ini merupakan tempat isi catatan",
       createdAt: new Date().toDateString(),
       archived: false,
     },

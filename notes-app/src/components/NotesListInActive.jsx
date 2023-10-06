@@ -22,9 +22,9 @@ function NotesInActive({ notesData, onDeleteNote, onArchiveNote }) {
   }
 
   return (
-    <div>
+    <div className="container-notes-inactive">
       <h1>Archive</h1>
-      {content}
+      <div className="container-notes-list-inactive">{content}</div>
     </div>
   );
 }

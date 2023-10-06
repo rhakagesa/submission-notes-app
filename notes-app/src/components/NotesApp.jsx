@@ -1,8 +1,9 @@
 import React from "react";
+import { getNotesData } from "../utils/data";
 import NotesInput from "./NotesInput";
 import NotesActive from "./NotesListActive";
 import NotesInActive from "./NotesListInActive";
-import { getNotesData } from "../utils/data";
+import NotesSearch from "./NotesSearch";
 
 class NotesApp extends React.Component {
   constructor(props) {
@@ -10,11 +11,21 @@ class NotesApp extends React.Component {
 
     this.state = {
       notesData: getNotesData(),
+      searchResults: [],
     };
 
     this.onDeleteNote = this.onDeleteNote.bind(this);
     this.onArchiveNote = this.onArchiveNote.bind(this);
     this.onAddNotes = this.onAddNotes.bind(this);
+    this.onSearch = this.onSearch.bind(this);
+  }
+
+  onSearch(searchValue) {
+    const filteredNotes = this.state.notesData.filter((note) =>
+      note.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    this.setState({ searchResults: filteredNotes });
   }
 
   onAddNotes({ title, body }) {
@@ -53,19 +64,33 @@ class NotesApp extends React.Component {
   render() {
     console.log(this.state.notesData);
     return (
-      <div>
-        <NotesInput addNotes={this.onAddNotes} />
-        <NotesActive
-          notesData={this.state.notesData.filter((note) => !note.archived)}
-          onDeleteNote={this.onDeleteNote}
-          onArchiveNote={this.onArchiveNote}
-        />
-        <NotesInActive
-          notesData={this.state.notesData.filter((note) => note.archived)}
-          onDeleteNote={this.onDeleteNote}
-          onArchiveNote={this.onArchiveNote}
-        />
-      </div>
+      <>
+        <header className="container-notes-search">
+          <h1>Notes App</h1>
+          <NotesSearch addSearch={this.onSearch} />
+        </header>
+        <div className="container-notes-app">
+          <NotesInput addNotes={this.onAddNotes} />
+          <NotesActive
+            notesData={
+              this.state.searchResults.length > 0
+                ? this.state.searchResults.filter((note) => !note.archived)
+                : this.state.notesData.filter((note) => !note.archived)
+            }
+            onDeleteNote={this.onDeleteNote}
+            onArchiveNote={this.onArchiveNote}
+          />
+          <NotesInActive
+            notesData={
+              this.state.searchResults.length > 0
+                ? this.state.searchResults.filter((note) => note.archived)
+                : this.state.notesData.filter((note) => note.archived)
+            }
+            onDeleteNote={this.onDeleteNote}
+            onArchiveNote={this.onArchiveNote}
+          />
+        </div>
+      </>
     );
   }
 }

@@ -2,9 +2,9 @@ import React from "react";
 
 function NotesBody({ title, createdAt, body }) {
   return (
-    <div>
+    <div className="container-notes-body">
       <h2>{title}</h2>
-      <p>{createdAt}</p>
+      <h5>{createdAt}</h5>
       <p>{body}</p>
     </div>
   );

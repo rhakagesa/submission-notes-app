@@ -22,9 +22,9 @@ function NotesActive({ notesData, onDeleteNote, onArchiveNote }) {
     ));
   }
   return (
-    <div>
+    <div className="container-notes-active">
       <h1>Catatan Aktif</h1>
-      {content}
+      <div className="container-notes-list-active">{content}</div>
     </div>
   );
 }

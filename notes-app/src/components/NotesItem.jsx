@@ -11,7 +11,7 @@ function NotesItem({
   onArchiveNote,
 }) {
   return (
-    <div>
+    <div className="container-notes-item">
       <NotesBody title={title} createdAt={createdAt} body={body} />
       <NotesButton
         id={id}

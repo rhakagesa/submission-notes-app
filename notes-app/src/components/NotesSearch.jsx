@@ -1,14 +1,38 @@
 import React from "react";
 
-function NotesSearch({ searchByTitle, onSearchEventHandler }) {
-  return (
-    <input
-      type="text"
-      placeholder="Cari berdasarkan judul..."
-      value={searchByTitle}
-      onChange={onSearchEventHandler}
-    />
-  );
+class NotesSearch extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      titleSearch: "",
+    };
+
+    this.onSearchEventHandler = this.onSearchEventHandler.bind(this);
+  }
+
+  onSearchEventHandler(ev) {
+    const searchField = ev.target.value;
+
+    this.setState(() => {
+      return {
+        titleSearch: searchField,
+      };
+    });
+    this.props.addSearch(searchField);
+  }
+
+  render() {
+    return (
+      <input
+        className="notes-search"
+        type="text"
+        id="searchField"
+        placeholder="Cari judul..."
+        onChange={this.onSearchEventHandler}
+      />
+    );
+  }
 }
 
 export default NotesSearch;

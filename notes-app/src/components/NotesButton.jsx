@@ -2,12 +2,17 @@ import React from "react";
 
 function NotesButton({ id, archived, onDeleteNote, onArchiveNote }) {
   return (
-    <>
-      <button onClick={() => onDeleteNote(id)}>Hapus</button>
-      <button onClick={() => onArchiveNote(id, !archived)}>
+    <div className="container-button">
+      <button onClick={() => onDeleteNote(id)} className="delete-button">
+        Hapus
+      </button>
+      <button
+        onClick={() => onArchiveNote(id, !archived)}
+        className="archive-button"
+      >
         {archived ? "Aktif" : "Arsip"}
       </button>
-    </>
+    </div>
   );
 }
 
