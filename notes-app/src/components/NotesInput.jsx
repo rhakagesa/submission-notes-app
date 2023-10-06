@@ -16,13 +16,16 @@ class NotesInput extends React.Component {
   }
 
   onTitleChangeEventHandler(ev) {
-    const maxInputLeft = ev.target.maxLength - ev.target.value.length;
-    this.setState(() => {
-      return {
-        title: ev.target.value,
-        maxInputLeft: maxInputLeft,
-      };
-    });
+    const titleValue = ev.target.value;
+    const maxInputLeft = 50 - titleValue.length;
+    if (maxInputLeft >= 0) {
+      this.setState(() => {
+        return {
+          title: titleValue,
+          maxInputLeft: maxInputLeft,
+        };
+      });
+    }
   }
 
   onBodyChangeEventHandler(ev) {
@@ -53,7 +56,6 @@ class NotesInput extends React.Component {
           placeholder="Masukkan judul..."
           value={this.state.title}
           onChange={this.onTitleChangeEventHandler}
-          maxLength={50}
           required
         />
         <p>Sisa karakter: {this.state.maxInputLeft} </p>

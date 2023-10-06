@@ -20,6 +20,7 @@ body {
 }
 
 .form-input {
+  background-color: var(--color4);
   width: 500px;
   height: max-content;
   margin-block-end: 3rem;
@@ -30,20 +31,17 @@ body {
 }
 .form-input h1 {
   align-self: center;
-  background-color: var(--color2);
   width: 100%;
-  border-top-right-radius: 1rem;
-  border-top-left-radius: 1rem;
   padding-block: 1rem;
-  color: var(--color4);
+  color: var(--color1);
   text-align: center;
-  margin-block-end: 1rem;
 }
 .form-input p {
   margin-block-start: 0.1rem;
   margin-inline-start: 2.3rem;
   font-size: small;
   font-weight: bolder;
+  color: var(--color1);
 }
 .form-input input[type="text"] {
   width: 90%;
@@ -53,7 +51,7 @@ body {
   font-size: large;
   align-self: center;
   border: none;
-  box-shadow: 0.1rem 0.1rem 0.2rem var(--color4);
+  box-shadow: 0.1rem 0.1rem 0.5rem var(--color1);
 }
 .form-input input[type="submit"] {
   width: 100%;
@@ -63,7 +61,7 @@ body {
   font-weight: 900;
   font-size: large;
   border: none;
-  background-color: var(--color3);
+  background-color: var(--color1);
 }
 .form-input textarea {
   width: 90%;
@@ -73,7 +71,7 @@ body {
   padding: 0.5rem;
   align-self: center;
   border: none;
-  box-shadow: 0.1rem 0.1rem 0.5rem var(--color4);
+  box-shadow: 0.1rem 0.1rem 0.5rem var(--color1);
 }
 
 .container-notes-search {
